@@ -18,7 +18,7 @@ export default function Home() {
       const { Network } = await import("vis-network/peer/esm/vis-network"); // :contentReference[oaicite:0]{index=0}
 
       // graph.json 가져오기
-      const res = await fetch("/data/graph.json");
+      const res = await fetch("data/graph.json");
       const data = await res.json();
       console.log("Loaded graph data:", data);
 
