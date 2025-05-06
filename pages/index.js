@@ -1,5 +1,6 @@
 // pages/index.js
 import { useEffect, useRef } from "react";
+import { useRouter } from "next/router";
 // CSS도 함께 import해야 canvas 스타일이 적용됩니다.
 import "vis-network/styles/vis-network.css";
 
@@ -11,6 +12,7 @@ const options = {
 
 export default function Home() {
   const container = useRef(null);
+  const { basePath } = useRouter();
 
   useEffect(() => {
     async function drawGraph() {
@@ -18,7 +20,7 @@ export default function Home() {
       const { Network } = await import("vis-network/peer/esm/vis-network"); // :contentReference[oaicite:0]{index=0}
 
       // graph.json 가져오기
-      const res = await fetch("/data/graph.json");
+      const res = await fetch(`${basePath}/data/graph.json`);
       const data = await res.json();
       console.log("Loaded graph data:", data);
 
