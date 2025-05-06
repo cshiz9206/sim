@@ -33,7 +33,7 @@ export default function Home() {
     }
 
     drawGraph();
-  }, []);
+  }, [basePath]);
 
   return (
     <div
